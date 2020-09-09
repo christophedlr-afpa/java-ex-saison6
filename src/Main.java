@@ -14,11 +14,15 @@ public class Main {
 
         do {
             System.out.println("1. 6.8");
+            System.out.println("2. 6.13");
             System.out.print("Choisissez votre option : ");
             option = Integer.parseInt(m.reader.readLine());
 
             if (option == 1) {
                 m.algo68();
+                exit = true;
+            } else if (option == 2) {
+                m.algo613();
                 exit = true;
             } else {
                 System.out.println("choix invalide");
@@ -58,5 +62,34 @@ public class Main {
         System.out.println("- "+nbrNegative+" valeurs négatives.");
         System.out.println("- "+nbrPositive+" valeurs positives.");
         System.out.println("- "+nbrZero+" valeurs à zéros.");
+    }
+
+    public void algo613() throws IOException {
+        int           nbrValues  = 0;
+        int           val        = 0;
+        int           greaterVal = 0;
+        int           pos        = 0;
+        List<Integer> values     = new ArrayList<Integer>();
+
+        System.out.print("Indiquze le nombre de valeurs à rentrer : ");
+        nbrValues = Integer.parseInt(reader.readLine());
+
+        for (int i = 0; i < nbrValues; i++) {
+            System.out.print("Indiquez une valeur entière positive ou négative : ");
+            val = Integer.parseInt(reader.readLine());
+            values.add(val);
+        }
+
+        for (int i = 0; i < nbrValues; i++) {
+            if (i+1 <= nbrValues && i > 0) {
+                if (values.get(i) > values.get(i-1)) {
+                    greaterVal = values.get(i);
+                    pos = i;
+                }
+            }
+        }
+
+        System.out.println("La plus grande valeur est : "+greaterVal);
+        System.out.println("Cette valeur est à la position : "+pos+" d'un tableau de "+nbrValues+" valeurs");
     }
 }

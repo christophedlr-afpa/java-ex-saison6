@@ -1,0 +1,34 @@
+ALGORITHME ex-6.13
+
+    VARIABLES
+        nbrValues: numérique = 0
+        val: numérique = 0
+        greaterVal: numérique = 0
+        pos: numérique = 0
+        values(): numérique
+
+    DEBUT
+        ECRIRE "Indiquez le nombre de valeurs à rentrer : "
+        LIRE nbrValues
+
+        POUR i 0 à nbrValues
+            ECRIRE "Indiquez une valeur entière positive ou négative : "
+            LIRE val
+
+            values(i) = val
+        FIN POUR
+
+        POUR i 0 à nbrValues
+            SI i+1 < nbrValues ET i > 0
+                SI values(i) > values(i-1)
+                    greaterVal = values(i)
+                    pos = i
+                FIN SI
+            FIN SI
+        FIN POUR
+
+        ECRIRE "La plus grande valeur est : "&greaterVal
+        ECRIRE "Cette valeur est à la position : "&pos&" d'un tableau de "&nbValues&&" valeurs"
+    FIN
+
+FIN ex-6.13
