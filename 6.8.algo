@@ -1,0 +1,38 @@
+ALGORITHME ex-6.8
+
+    VARIABLES
+        nbrValues: numérique = 0
+        values(1): numérique
+        nbrNegative: numérique = 0
+        nbrPositive: numérique = 0
+        nbrZero: numérique = 0
+        val: numérique = 0
+
+    DEBUT
+        ECRIRE "Indiquez le nombre de valeurs que vous désirez entrer : "
+        LIRE nbrValues
+
+        REDIM values(nbrValues-1)
+
+        POUR i 0 à nbrValues
+            ECRIRE "Donnez une valeur numérique entière positive ou négative : "
+            LIRE val
+
+            SI val < 0
+                nbrNegative = nbrNegative+1
+            SINON SI val > 0
+                nbrPositive = nbrPositive+1
+            SINON
+                nbrZero = nbrZero+1
+            FIN SI
+
+            values(i) = val
+        FIN POUR
+
+        ECRIRE "Vous avez rentré "&nbrValues&" valeurs au total, dont :"
+        ECRIRE "- "&nbrNegative&" valeurs négatives,"
+        ECRIRE "- "&nbrPositive&" valeurs positives."
+        ECRIRE "- "&nbrZero&" valeurs à zéro."
+    FIN
+
+FIN ex-6.8
