@@ -15,6 +15,7 @@ public class Main {
         do {
             System.out.println("1. 6.8");
             System.out.println("2. 6.13");
+            System.out.println("3. 6.17");
             System.out.print("Choisissez votre option : ");
             option = Integer.parseInt(m.reader.readLine());
 
@@ -23,6 +24,9 @@ public class Main {
                 exit = true;
             } else if (option == 2) {
                 m.algo613();
+                exit = true;
+            } else if (option == 3) {
+                m.algo617();
                 exit = true;
             } else {
                 System.out.println("choix invalide");
@@ -91,5 +95,39 @@ public class Main {
 
         System.out.println("La plus grande valeur est : "+greaterVal);
         System.out.println("Cette valeur est à la position : "+pos+" d'un tableau de "+nbrValues+" valeurs");
+    }
+
+    public void algo617() throws IOException {
+        int val;
+        int temp;
+        int pos = 0;
+        List<Integer> arraySort = new ArrayList<Integer>();
+        boolean changed = false;
+
+        for (int i = 0; i < 12; i++) {
+            System.out.print("Indiquez un nombre pour la position "+i+" : ");
+            val = Integer.parseInt(reader.readLine());
+            arraySort.add(val);
+
+            for (int x = 0; x < arraySort.size(); x++) {
+                for (int j = x; j < arraySort.size(); j++) {
+                    if (arraySort.get(j) < arraySort.get(x)) {
+                        pos = j;
+                        changed = true;
+                    }
+                }
+
+                if (changed) {
+                    temp = arraySort.get(pos);
+                    arraySort.set(pos, arraySort.get(x));
+                    arraySort.set(x, temp);
+                    changed = false;
+                }
+            }
+        }
+
+        for (int value:arraySort) {
+            System.out.println(value);
+        }
     }
 }

@@ -1,0 +1,33 @@
+ALGORITHME ex-6.17
+    VARIABLES
+    val: numérique
+    temp: numérique
+    arraySort(100): numérique
+    pos: numérique = 0
+    changed: booléen = FAUX
+
+    DEBUT
+        POUR i = 0 à 99
+            ECRIRE "Indiquz un nombre pour la position "&i&" : "
+            LIRE val
+
+            arraySort(i) = val
+
+            POUR x = 0 à taille arraySort
+                POUR j = x à taille arraySort
+                    SI arraySort(j) < arraySort(x)
+                        pos = j
+                        changed = VRAI
+                    FIN SI
+                FIN POUR
+
+                SI changed == VRAI
+                    temp = arraySort(pos)
+                    arraySort(pos) = arraySort(x)
+                    arraySort(x)  = temp
+                    changed = FAUX
+                FIN SI
+            FIN POUR
+        FIN POUR
+    FIN
+FIN ex-6.17
